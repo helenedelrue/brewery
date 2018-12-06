@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Breweries.Models;
 using Breweries.Models.DB;
 using Microsoft.EntityFrameworkCore;
+using Breweries.Utils;
 
 namespace Breweries
 {
@@ -38,6 +39,8 @@ namespace Breweries
 
             // Add ASPNETCoreDemoDBContext services.
             services.AddDbContext<BreweryDatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BreweryDatabase")));
+
+            DataSeeder.APIKey = Configuration["myAPIKey"];
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +62,7 @@ namespace Breweries
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Breweries}/{action=Index}/{id?}");
             });
         }
     }

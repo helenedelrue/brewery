@@ -1,0 +1,20 @@
+﻿
+.cbtn-red {
+    border-color: red;
+    background-color: red; 
+}
+
+.cbtn-red:hover {
+    border-color: darkred;
+    background-color: darkred;
+}
+
+
+.glyphicon-trash {
+    color: white;
+}
+
+.cbtn-blue {
+    border-color: dodgerblue;
+    background-color: dodgerblue;
+}

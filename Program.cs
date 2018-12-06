@@ -7,6 +7,9 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Breweries.Utils;
+using Microsoft.Extensions.DependencyInjection;
+using Breweries.Models.DB;
 
 namespace Breweries
 {
@@ -14,7 +17,24 @@ namespace Breweries
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<BreweryDatabaseContext>();
+                try
+                {
+                    DataSeeder.SeedBreweriesAsync(context); 
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+
+                }
+            }
+            
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
