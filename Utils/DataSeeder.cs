@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace Breweries.Utils
 {
+    //Class that is responsible for feeding the data from the given API into the created database. 
+    //Ensure that data is only pushed into the database once. 
     public static class DataSeeder
     { 
         public static string APIKey { get; set; }
@@ -45,6 +47,7 @@ namespace Breweries.Utils
         static async Task<string> GetBreweryAsync(string path)
         {
             using (var httpClientHandler = new HttpClientHandler()) {
+                //fix for SSL certificate being expired, override SSL certificate check on a HTTP call with the anonymous callback function 
                 httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
                 using (var client = new HttpClient(httpClientHandler)) {
                     HttpResponseMessage response = await client.GetAsync(path);
@@ -54,7 +57,7 @@ namespace Breweries.Utils
                         var response_string = await response.Content.ReadAsStringAsync();
                         return response_string;
                     }
-                    return "Nope";
+                    return "Error";
                 }
             }
         }

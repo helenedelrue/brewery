@@ -1,7 +1,23 @@
-﻿
+﻿.cbtn-blue {
+    border-color: #4571DA;
+    background-color: #4571DA;
+}
+
 .cbtn-red {
     border-color: red;
     background-color: red; 
+}
+
+.cbtn-green {
+    border-color: #54B948;
+    background-color: #54B948;
+    color: white;
+    font-size: 15px;
+}
+
+.cbtn-blue:hover {
+    border-color: #004792;
+    background-color: #004792;
 }
 
 .cbtn-red:hover {
@@ -9,12 +25,25 @@
     background-color: darkred;
 }
 
+.cbtn-green:hover {
+    border-color: #2E8B57;
+    background-color: #2E8B57;
+}
 
 .glyphicon-trash {
     color: white;
 }
 
-.cbtn-blue {
-    border-color: dodgerblue;
-    background-color: dodgerblue;
+.glyphicon-pencil {
+    color: white;
 }
+
+
+.glyphicon-plus{
+    color: white;
+}
+
+.ctitle {
+    font-size: 24px;
+}
+
