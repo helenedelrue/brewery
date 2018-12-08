@@ -20,7 +20,7 @@ namespace Breweries.Utils
         {
             if (!context.Brewery.Any())
             {
-                Task<string> breweryTask = GetBreweryAsync("https://guides.unibooker.com/api/packages/Filter?apiKey="+APIKey+"&language=en");
+                Task<string> breweryTask = GetBreweryAsync("https://guides.unibooker.com/api/packages/Filter?apiKey=" + APIKey + "&language=en");
 
                 var json = JObject.Parse(breweryTask.Result);
 

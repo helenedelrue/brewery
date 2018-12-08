@@ -1,11 +1,13 @@
 ﻿.cbtn-blue {
     border-color: #4571DA;
     background-color: #4571DA;
+    color: white;
 }
 
 .cbtn-red {
     border-color: red;
-    background-color: red; 
+    background-color: red;
+    color: white;
 }
 
 .cbtn-green {
@@ -18,16 +20,19 @@
 .cbtn-blue:hover {
     border-color: #004792;
     background-color: #004792;
+    color: white;
 }
 
 .cbtn-red:hover {
     border-color: darkred;
     background-color: darkred;
+    color: white;
 }
 
 .cbtn-green:hover {
     border-color: #2E8B57;
     background-color: #2E8B57;
+    color: white;
 }
 
 .glyphicon-trash {
@@ -47,3 +52,6 @@
     font-size: 24px;
 }
 
+dl-horizontal .crow {
+    text-align: left;
+}
