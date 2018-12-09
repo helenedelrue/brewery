@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Breweries.Models.DB
 {
@@ -22,9 +20,7 @@ namespace Breweries.Models.DB
             modelBuilder.Entity<Brewery>(entity =>
             {
                 entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasMaxLength(36)
-                    .ValueGeneratedNever();
+                    .HasColumnName("ID");
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 

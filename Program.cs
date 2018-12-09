@@ -22,6 +22,8 @@ namespace Breweries
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
+
+                //initialize database 
                 var context = services.GetRequiredService<BreweryDatabaseContext>();
                 try
                 {

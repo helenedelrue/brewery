@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Breweries.Models.DB;
 
@@ -25,7 +23,7 @@ namespace Breweries.Controllers
         }
 
         // GET: Breweries/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(Guid id)
         {
             if (id == null)
             {
@@ -63,7 +61,7 @@ namespace Breweries.Controllers
         }
 
         // GET: Breweries/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(Guid id)
         {
             if (id == null)
             {
@@ -81,7 +79,7 @@ namespace Breweries.Controllers
         // POST: Breweries/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Email,Website,Telephone")] Brewery brewery)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Title,Email,Website,Telephone")] Brewery brewery)
         {
             if (id != brewery.Id)
             {
@@ -112,7 +110,7 @@ namespace Breweries.Controllers
         }
 
         // GET: Breweries/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             if (id == null)
             {
@@ -132,7 +130,7 @@ namespace Breweries.Controllers
         // POST: Breweries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var brewery = await _context.Brewery.FindAsync(id);
             _context.Brewery.Remove(brewery);
@@ -140,7 +138,7 @@ namespace Breweries.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BreweryExists(string id)
+        private bool BreweryExists(Guid id)
         {
             return _context.Brewery.Any(e => e.Id == id);
         }

@@ -29,7 +29,7 @@ namespace Breweries.Utils
                 foreach (JObject brewery in json_responses)
                 {
                     Brewery newBrewery = new Brewery();
-                    newBrewery.Id = brewery["ID"].ToString();
+                    newBrewery.Id = Guid.Parse(brewery["ID"].ToString());
                     newBrewery.Title = brewery["Title"].ToString();
                     newBrewery.Email = brewery["ContactCard"]["Email"].ToString();
                     newBrewery.Website = brewery["ContactCard"]["Website"].ToString();
